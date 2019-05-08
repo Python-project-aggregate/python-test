@@ -38,3 +38,14 @@ def _getfiletype(f:Path):
         return 'l'
     else:
         return '-'
+# -rw-rw-r-- 1 python python
+def listdirdetail(path, all=False):
+    '''详细列出本目录'''
+    p = Path(path)
+    for f in p.iterdir():
+        if not all and f.name.startswith('.'):
+            continue
+            # mode 硬链接 属组 属组 字节 时间 name
+        stat = f.stat()
+        t = _getfiletype(f)
+        mode = oct(stat.st_atime)[-3:]
