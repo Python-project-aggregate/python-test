@@ -30,6 +30,11 @@ def listdir(path, all=False):
 def _getfiletype(f:Path):
     if f.is_dir():
         return 'd'
-    elif f.is_block_device():
-        return 'b'
-
+    elif f.is_char_device():
+        return 'c'
+    elif f.is_socket():
+        return 's'
+    elif f.is_symlink():
+        return 'l'
+    else:
+        return '-'
