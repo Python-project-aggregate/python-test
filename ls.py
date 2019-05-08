@@ -19,4 +19,18 @@ def listdir(path, all= False, detail=False,human=False):
             size = size // 1000
             depth += 1
         return "{}{}".format(size, units[depth])
-    def _list
+    def _listdir(path, all=False, detail=False, human= False):
+        '''详细列出本目录'''
+        p = Path(path)
+        for f in p.iterdir():
+            if not all f.name.startswith('.'):# 不显示隐藏文件
+                continue
+            if not detail:
+                yield (f.name)
+            else:
+                #
+                st = f.stat()
+                mode = stat.filemode(st.st_mode)
+                mtime = datetime.fromtimestamp(st.st_mtime).strftime('%Y %m %d %H:%M:%S')
+                size = st.st_size if not human else _gethuman(st.st_size)
+                yield(mode,st.st_n)
