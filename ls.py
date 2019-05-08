@@ -27,5 +27,9 @@ def listdir(path, all=False):
     yield from filter(lambda f:all or not f.name.startswith('.'), p.iterdir())
 
 # 获取文件类型
-
+def _getfiletype(f:Path):
+    if f.is_dir():
+        return 'd'
+    elif f.is_block_device():
+        return 'b'
 
