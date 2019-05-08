@@ -33,4 +33,11 @@ def listdir(path, all= False, detail=False,human=False):
                 mode = stat.filemode(st.st_mode)
                 mtime = datetime.fromtimestamp(st.st_mtime).strftime('%Y %m %d %H:%M:%S')
                 size = st.st_size if not human else _gethuman(st.st_size)
-                yield(mode,st.st_n)
+                yield(mode,st.st_nlink, st.st_uid, st.st_gid, size, mtime ,f.name)
+    # 排序
+    yield from sorted(_listdir(path, all, detail, haman), key = lambda x:x[-1])
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+
+
