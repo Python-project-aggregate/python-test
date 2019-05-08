@@ -39,5 +39,8 @@ def listdir(path, all= False, detail=False,human=False):
 
 if __name__ == '__main__':
     args = parser.parse_args()
+    parser.print_help()
+    files = listdir(args.path, args.all, args.l, args.human)
+    print(list(files))
 
 
