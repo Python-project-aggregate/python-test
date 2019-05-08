@@ -23,7 +23,7 @@ def listdir(path, all= False, detail=False,human=False):
         '''详细列出本目录'''
         p = Path(path)
         for f in p.iterdir():
-            if not all f.name.startswith('.'):# 不显示隐藏文件
+            if not all f.startswith('.'):# 不显示隐藏文件
                 continue
             if not detail:
                 yield (f.name)
@@ -42,5 +42,6 @@ if __name__ == '__main__':
     parser.print_help()
     files = listdir(args.path, args.all, args.l, args.human)
     print(list(files))
+
 
 
