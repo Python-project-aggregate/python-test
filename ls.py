@@ -49,3 +49,6 @@ def listdirdetail(path, all=False):
         stat = f.stat()
         t = _getfiletype(f)
         mode = oct(stat.st_atime)[-3:]
+        mtime = datetime.fromtimestamp(stat.st_mtime).strftime('%Y %m %d %H:%M:%S')
+        yield (t, mode, stat.st_atime, stat.st_uid, stat.st_gid, stat.st_size, mtime,f.name)
+    print(list(listdirdetail(args.path)))
