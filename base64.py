@@ -10,3 +10,6 @@ def base64encode(src:str):
     length = len(_src)
     for offset in range(0, length, 3):
         triple = _src[offset:offset+3]
+        r = 3 - len(triple)
+        if r:
+            triple += b'\x00' * r
