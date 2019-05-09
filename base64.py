@@ -21,3 +21,4 @@ def base64encode(src:str):
             ret[-r:] = b'=' * r
     return bytes(ret)
 import base64
+strlist = ['a', 'b']
