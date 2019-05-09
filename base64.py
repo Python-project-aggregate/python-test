@@ -8,3 +8,5 @@ def base64encode(src:str):
     else:
         return
     length = len(_src)
+    for offset in range(0, length, 3):
+        triple = _src[offset:offset+3]
