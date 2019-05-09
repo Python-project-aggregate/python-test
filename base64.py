@@ -23,3 +23,5 @@ def base64encode(src:str):
 import base64
 strlist = ['a', 'b']
 for x in strlist:
+    print(x)
+    print
