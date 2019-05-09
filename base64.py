@@ -13,3 +13,5 @@ def base64encode(src:str):
         r = 3 - len(triple)
         if r:
             triple += b'\x00' * r
+        b = int.from_bytes(triple, 'big')
+        for i in range(18, -1, -6):
