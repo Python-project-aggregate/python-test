@@ -24,4 +24,5 @@ import base64
 strlist = ['a', 'b']
 for x in strlist:
     print(x)
-    print
+    print(base64encode(x))
+    print()
