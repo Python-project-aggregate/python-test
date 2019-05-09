@@ -9,3 +9,7 @@ print(sorted(d.items(), key = lambda item:item[1], reverse=True))
 from collections import defaultdict
 d = defaultdict(lambda :0)
 with open(filename, encoding='utf-80') as f:
+    for line in f:
+        words = line.split()
+        for word in map(str.lower, words):
+            d[word] += 1
