@@ -16,3 +16,8 @@ def base64encode(src:str):
         b = int.from_bytes(triple, 'big')
         for i in range(18, -1, -6):
             index = b >> i if i == 18 else b >> i & 0x3F
+            ret.append(alphabet[index])
+        if r:
+            ret[-r:] = b'=' * r
+    return bytes(ret)
+import base64
