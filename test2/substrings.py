@@ -13,15 +13,16 @@ def substrings():
     # print(record)
     for i in range(lst1):
         for j in range(lst2):
-            record[0][i+1] = a[i]
-            record[j+1][0] = b[j]
+            # record[0][i+1] = a[i]
+            # record[j+1][0] = b[j]
             # record[0][0] = 0
             if a[i] == b[j]:
-                record[j+1][i+1] = record[j+1][i+1] + 1
+                print(i)
+                record[j+1][i+1] = record[j][i] + 1
                 if record[j+1][i+1] > max:
                     max = record[j+1][i+1]
                     p = i + 1
-    # print(*record, sep='\n')
+    print(*record, sep='\n')
     print(a[p-max:p])
     # lst.append(*record)
 
