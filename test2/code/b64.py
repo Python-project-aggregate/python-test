@@ -1,1 +1,1 @@
-print(int(b'1010', 2))
+print(unichr(0x41))
