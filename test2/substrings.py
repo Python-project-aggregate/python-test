@@ -24,7 +24,7 @@ def substrings():
                     p = i + 1
     print(*record, sep='\n')
     print(a[p-max:p])
-    # lst.append(*record)
+    # print(lst.append(*record))
 
 
     # print(*record, sep = "\n")
