@@ -24,7 +24,7 @@ def com(s1,s2):
     for j in range(len(little ),0,-1):
         i=0
         while len(little )>j:
-            n=little [i:j+1]
+            n=little[i:j+1]
             if n in temp:
                 if len(n)>len(final[0]):
                     final.clear()
@@ -38,6 +38,6 @@ def com(s1,s2):
         if len(final[0]):
             break
     print(final)
-s1='jjs'
-s2='jjs'
+s1='jjsasdfas'
+s2='jadfasjs'
 com(s1,s2)
