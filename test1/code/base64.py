@@ -20,7 +20,8 @@ def base64encode(src:str):
         if r:
             ret[-r:] = b'=' * r
     return bytes(ret)
-import base64
+
+
 strlist = ['a', 'b']
 for x in strlist:
     print(x)
