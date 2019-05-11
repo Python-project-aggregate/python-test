@@ -1,0 +1,2 @@
+import module1
+# 导入module时, 不会执行模块if条件成立时的代码因为模块的名字是module2而不是main
