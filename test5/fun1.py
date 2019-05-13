@@ -20,3 +20,5 @@ def print_tree(array, unit_width=2):
         print(interval.join(map(lambda x :"{:2}".format(x), line)))
         index += offset
 
+origin = [0, 30, 20, 80, 40,50, 10, 60, 70, 90]
+total = len(origin) - 1
