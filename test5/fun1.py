@@ -12,4 +12,5 @@ def print_tree(array, unit_width=2):
     depth = math.ceil(math.log2(length))
     space = ' '* unit_width
     for i in range(depth-1, -1, -1):
-        pre = 2** i - 1
+        pre = 2 ** i - 1
+        print(pre * space, end = '')
