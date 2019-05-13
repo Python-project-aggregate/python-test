@@ -9,3 +9,4 @@ def print_tree(array, unit_width=2):
     '''
     length = len(array)
     index = 1
+    depth = math.ceil(math.log2(length))
