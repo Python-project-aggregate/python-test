@@ -26,7 +26,7 @@ print(origin)
 print_tree(origin)
 print('='* 50 )
 def heap_adjust(n, i, array:list):
-    while 2 * i < = n:
+    while 2 * i <= n:
         lchile_index = 2 * i
         max_child_index = lchile_index
         if n> lchile_index and array[lchile_index + 1] > array[lchile_index]:
