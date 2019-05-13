@@ -25,3 +25,4 @@ total = len(origin) - 1
 print(origin)
 print_tree(origin)
 print('='* 50 )
+def heap_adjust(n, i, array:list):
