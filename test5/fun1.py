@@ -8,4 +8,4 @@ def print_tree(array, unit_width=2):
     :return:
     '''
     length = len(array)
-    ind
+    index = 1
