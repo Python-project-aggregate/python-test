@@ -22,3 +22,6 @@ def print_tree(array, unit_width=2):
 
 origin = [0, 30, 20, 80, 40,50, 10, 60, 70, 90]
 total = len(origin) - 1
+print(origin)
+print_tree(origin)
+print('='* 50 )
