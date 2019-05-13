@@ -17,3 +17,4 @@ def print_tree(array, unit_width=2):
         offset = 2 ** (depth - 1 -1 )
         line = array[index:index + offset]
         interval = (2 * pre + 1) * space
+        print(interval.join(map(lambda x :"{:2}".format(x), line)))
