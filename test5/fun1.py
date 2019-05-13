@@ -14,3 +14,5 @@ def print_tree(array, unit_width=2):
     for i in range(depth-1, -1, -1):
         pre = 2 ** i - 1
         print(pre * space, end = '')
+        offset = 2 ** (depth - 1 -1 )
+        line = array[index:index + offset]
