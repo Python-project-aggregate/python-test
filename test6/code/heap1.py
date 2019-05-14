@@ -36,15 +36,21 @@ def heap_adjust(n ,i, array:list):
             i = max_child_index
         else:
             break
-print()
-heap_adjust(total, 1, origin)
-print_tree(origin)
+# print()
+# heap_adjust(total, 1, origin)
+# print_tree(origin)
 def max_heap(total, array:list):
     for i in range(total//2, 0, -1):
         heap_adjust(total, i, array)
-        print_tree(origin)
-        print()
-        print(origin)
-        print()
     return array
 # print_tree(max_heap(total,origin))
+def sort(total, array:list):
+    while total > 1:
+        array[1], array[total] = array[total], array[1]
+        total -= 1
+        if total == 2 and array[total] >= array[total - 1]:
+            break
+        heap_adjust(total, 1, array)
+    return array
+print_tree(sort(total, origin))
+# print(origin)
