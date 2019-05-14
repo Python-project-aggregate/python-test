@@ -49,5 +49,8 @@ def sort(total, array:list):
         if total == 2 and array[total] >= array[total -1]:
             break
         heap_adjust(total, 1, array)
+
 print_tree(sort(total, origin))
+
+
 print(origin)
