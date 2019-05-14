@@ -28,3 +28,9 @@ def load(*path, encoding='utf-8', ext='*.log', recursive=False):
         p = Path(x)
         if p.is_dir():
             if isinstance(ext, str):
+                ext = [ext]
+            else:
+                ext = list(ext)
+            for e in ext:
+                files = p.rglob(e) if recursive else p.glob(e)
+                for file in files:
