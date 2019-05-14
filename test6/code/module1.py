@@ -37,3 +37,4 @@ def load(*path, encoding='utf-8', ext='*.log', recursive=False):
                     yield from loadfile(str(file.absolute()), encoding=encoding)
         elif p.is_file():
             yield from loadfile(str(p.absolute()), encoding = encoding)
+
