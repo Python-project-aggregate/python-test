@@ -5,7 +5,21 @@ def load(*parhs, endcoding= 'utf-8', ext='*.log', recursive=False):
     for x in paths:
         p = Path(x)
         if p.is_dir():
-
+            if isinstance(ext, str):
+                ext = [ext]
+            else:
+                ext = list(ext)
+            for e in ext:
+                files = p.rglob(e) if recursive else p.glob(e)
+                with file.open(encoding=endcoding) as f:
+                    for line in f:
+                        fields = extract(line)
+                        if fields:
+                            yield fields
+                        else:
+                            continue
+        elif p.is_file():
+            pass
 def dispather(src):
     handlers = []
     queues = []
