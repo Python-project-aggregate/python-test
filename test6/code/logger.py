@@ -13,3 +13,23 @@ re.match方法,采用抛出异常的方式,让调用者获得异常并自行处�
 日志文件的加载,迭代一下路径文件的存放,判断路径是一个目录还是文件.
 分析器:分析IP的地理分布, 用对列,pv分析,user-agent模块. 可以用第三方模块.
 '''
+with open('test.log') as f:
+    for line in f:
+        for field in line.split():
+            print(field)
+
+import re
+pattern = '''
+([\d.]{7,})
+'''
+regex =  re.compile(pattern)
+def extract(logline:str):
+    m = regex.match(logline)
+    if m:
+        print(m.group())
+extract(line)
+
+import datetime
+def convert_time(timestr):
+    return datetime.datetime.striptime(timestr, '%d/%b/%Y: %H:%M:%s')
+lambda timestr: datetime.datetime.strip(timestr, '%d')
