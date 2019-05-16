@@ -1,8 +1,8 @@
 # 模拟购物车购物
 '''
-添加购物车
+添加到购物车
 删除购物车
-一起清算
+结算购物车
 '''
 import json
 class ShoppingCart:
@@ -13,9 +13,9 @@ class ShoppingCart:
         self.price = price
 
     def add(self):
-        '''增加商品'''
+        '''增加商品到购物车'''
         a = list()
-        d ={'序号':self.num,'名字':self.name, '颜色':self.color, '价格':self.price}
+        d ={self.num:{'名字':self.name, '颜色':self.color, '价格':self.price}}
         a.append(d)
         # print(type(d))
         '''写入json文件中'''
@@ -27,19 +27,43 @@ class ShoppingCart:
                     f.truncate()
                     for i in load_dict:
                         a.append(i)
-                    # print(a)
+                    print(a)
                 json.dump(a, f, ensure_ascii=False)
             else:
                 json.dump(a, f, ensure_ascii=False)
-
     @classmethod
-    def accounts(self):
+    def get_money(self):
+        pass
+    @classmethod
+    def accounts(self,num = 0):
+        '''总计金额'''
         with open('shopping.txt','r+') as f:
             load_ = json.load(f)
-            print(type(load_),load_)
-            for i in f:
+            # loads_dict = json.loads(load_)
+            print(type(load_))
+            for v in load_:
+                # print(v)
+                for j in v.values():
+                    print(j['价格'])
+                    num += j['价格']
+                # print(i['价格'])
+            print('总计金额为',num)
+    @classmethod
+    def clr(self):
+        '''删除购物车物品'''
+        pass
+    @ classmethod
+    def dele(self):
+        '''清空购物车'''
+        with open('shopping.txt','r+') as f:
+            f.truncate()
 
-                print(load_)
-a = ShoppingCart(5,'小米9', 'blue', 2999)
-a.add()
-ShoppingCart.accounts()
+
+if __name__ == '__main__':
+    pass
+
+    # ShoppingCart(2,'华为mate20', 'blue', 5000).add() # 添加商品到购物车
+    # ShoppingCart.accounts() # 结算全部购物车商品
+    # ShoppingCart.dele() # 清空购物车
+    # ShoppingCart.get_money()# 结算单个商品
+    # ShoppingCart.clr() # 删除单个商品
