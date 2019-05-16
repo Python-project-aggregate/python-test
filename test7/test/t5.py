@@ -14,33 +14,32 @@ class ShoppingCart:
 
     def add(self):
         '''增加商品'''
-        d = {}
-        d[self.num]={'名字':self.name, '颜色':self.color, '价格':self.price}
-        # print(d)
-        dump_dict = json.dumps(d,ensure_ascii=False)
+        a = list()
+        d ={'序号':self.num,'名字':self.name, '颜色':self.color, '价格':self.price}
+        a.append(d)
+        # print(type(d))
         '''写入json文件中'''
-        with open('shopping.json') as f:
+        with open('shopping.txt','r+') as f:
             if f.read():
-                f.close()
-                with open('shopping.json', 'r+') as f1:
-                    loads_dict = json.load(f1)
-                    print(loads_dict,type(loads_dict))
-                    dump_dict = loads_dict + ',' +dump_dict
-                    json.dump(dump_dict, f1, ensure_ascii=False)
+                with open('shopping.txt', 'r+') as f1:
+                    load_dict = json.load(f1)
+                    f.seek(0)
+                    f.truncate()
+                    for i in load_dict:
+                        a.append(i)
+                    # print(a)
+                json.dump(a, f, ensure_ascii=False)
             else:
-                with open('shopping.json', 'w+') as f1:
-                    json.dump(dump_dict, f1, ensure_ascii=False)
-
-
+                json.dump(a, f, ensure_ascii=False)
 
     @classmethod
     def accounts(self):
-        with open('shopping.json') as f:
-            load_dict = json.load(f)
-        loads_dict = json.loads(load_dict)
-        print(load_dict)
+        with open('shopping.txt','r+') as f:
+            load_ = json.load(f)
+            print(type(load_),load_)
+            for i in f:
 
-
-a = ShoppingCart(1,'小米9', 'blue', '2999')
+                print(load_)
+a = ShoppingCart(5,'小米9', 'blue', 2999)
 a.add()
-# ShoppingCart.accounts()
+ShoppingCart.accounts()
