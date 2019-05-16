@@ -35,7 +35,9 @@ class ShoppingCart:
     def shop(self):
         with open('shopping.txt', 'r+') as f:
             load_ = json.load(f)
-            print(load_)
+            for i in load_:
+                for _, v in i.items():
+                    print('{} {:10} {:5} {:5}'.format(_, v['名字'], v['颜色'], v['价格']))
 
     @classmethod
     def get_money(self, num):
@@ -56,7 +58,7 @@ class ShoppingCart:
             load_ = json.load(f)
             for v in load_:
                 for j in v.values():
-                    print(j['价格'])
+                    print(j['名字'], j['价格'])
                     num += j['价格']
             print('总计金额为', num)
 
@@ -64,15 +66,15 @@ class ShoppingCart:
     def clr(self, k):
         '''删除单个购物车物品'''
         # 正则匹配  {"67": {"名字": "小米9", "颜色": "blue", "价格": 2999}},
-        file = open('shopping.txt', 'r')
-        a = file.read()
-        s = re.sub('{"' + k + '".+?}}', '', a, 1)
-        f = open("shopping.txt", 'w')
-        f.write(s)
+        with open('shopping.txt', 'r') as f:
+            a = f.read()
+            file = re.sub('{"' + k + '".+?}}', '', a, 1)
+            with open("shopping.txt", 'w') as f1:
+                f1.write(file)
         # 匹配,空格 清理干净
-        # .sub('{"' + k + '".+?}}', '', a, 1)
+        # f.sub('{"' + k + '".+?}}', '', a, 1)
         # f = open("shopping.txt", 'w')
-        # f.write(s
+        # f.write(s)
 
     @classmethod
     def dele(self):
@@ -82,9 +84,9 @@ class ShoppingCart:
 
 
 if __name__ == '__main__':
-    ShoppingCart.shop()# 打印当前购物车
-    # ShoppingCart(3,'气垫鞋', 'red', 80).add() # 添加商品到购物车
+    # ShoppingCart.shop()# 打印当前购物车
+    # ShoppingCart(5,'macbook pro', 'white', 12588).add() # 添加商品到购物车
     # ShoppingCart.accounts() # 结算全部购物车商品
-    # ShoppingCart.get_money('小米9')  # 结算单个商品
+    ShoppingCart.get_money('小米9')  # 结算单个商品
     # ShoppingCart.clr('1') # 删除单个商品
     # ShoppingCart.dele()  # 清空购物车
