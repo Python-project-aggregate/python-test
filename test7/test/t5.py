@@ -27,20 +27,27 @@ class ShoppingCart:
                     f.truncate()
                     for i in load_dict:
                         a.append(i)
-                    print(a)
                 json.dump(a, f, ensure_ascii=False)
             else:
                 json.dump(a, f, ensure_ascii=False)
+        print(a)
+
+    @classmethod
+    def shop(self):
+        with open('shopping.txt','r+') as f:
+            load_ = json.load(f)
+            print(load_)
     @classmethod
     def get_money(self):
-        pass
+        with open('shopping.txt','r+') as f:
+            load_ = json.load(f)
     @classmethod
     def accounts(self,num = 0):
         '''总计金额'''
         with open('shopping.txt','r+') as f:
             load_ = json.load(f)
             # loads_dict = json.loads(load_)
-            print(type(load_))
+            # print(type(load_))
             for v in load_:
                 # print(v)
                 for j in v.values():
@@ -61,9 +68,9 @@ class ShoppingCart:
 
 if __name__ == '__main__':
     pass
-
-    # ShoppingCart(2,'华为mate20', 'blue', 5000).add() # 添加商品到购物车
+    # ShoppingCart.shop()# 打印当前购物车
+    # ShoppingCart(3,'气垫鞋', 'red', 80).add() # 添加商品到购物车
     # ShoppingCart.accounts() # 结算全部购物车商品
-    # ShoppingCart.dele() # 清空购物车
-    # ShoppingCart.get_money()# 结算单个商品
+    ShoppingCart.get_money()# 结算单个商品
     # ShoppingCart.clr() # 删除单个商品
+    # ShoppingCart.dele() # 清空购物车
