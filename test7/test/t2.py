@@ -28,7 +28,6 @@ class Test2:
         plt.show()
 
 if __name__ == '__main__':
-
     # random_num = Test2()
     a = Test2.col(co1)
     b = Test2.mat(a)
