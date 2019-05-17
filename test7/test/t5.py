@@ -35,9 +35,11 @@ class ShoppingCart:
     def shop(self):
         with open('shopping.txt', 'r+') as f:
             load_ = json.load(f)
+            print('我的购物车')
             for i in load_:
                 for _, v in i.items():
                     print('{} {:10} {:5} {:5}'.format(_, v['名字'], v['颜色'], v['价格']))
+            print(' ' * 22 + '结算')
 
     @classmethod
     def get_money(self, num):
@@ -84,9 +86,9 @@ class ShoppingCart:
 
 
 if __name__ == '__main__':
-    # ShoppingCart.shop()# 打印当前购物车
-    # ShoppingCart(5,'macbook pro', 'white', 12588).add() # 添加商品到购物车
+    ShoppingCart.shop()  # 打印当前购物车
+    # ShoppingCart(6,'macbook pro', 'white', 12588).add() # 添加商品到购物车
     # ShoppingCart.accounts() # 结算全部购物车商品
-    ShoppingCart.get_money('小米9')  # 结算单个商品
-    # ShoppingCart.clr('1') # 删除单个商品
+    # ShoppingCart.get_money('小米9')  # 结算单个商品
+    # ShoppingCart.clr('6') # 删除单个商品
     # ShoppingCart.dele()  # 清空购物车
