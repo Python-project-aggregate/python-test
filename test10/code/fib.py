@@ -1,22 +1,19 @@
 class Property:
-    def __init__(self, fn):
-        self.fn = fn
-
+    def __init__(self, get_fn =None , set_fn = None):
+        self.get_fn = get_fn
+        self.set_fn = set_fn
     def __get__(self, instance, owner):
-        self.fn = self.fn(instance)
-        return self.fn
+        return self.get_fn(instance)
 
-    def setter(self, fn):
-        print('!!!!!!!!!!!',fn)
-        return fn
+    # def __set__(self, instance, value):
+    #     self.set_fn(instance, value)
 
-    def __set__(self, instance, value):
-        instance.__dict__['_data']= value
-        print(value, '===========', instance)
-
+    def setter(self, set_fn):
+        print(type(self)(self.get_fn, set_fn))
+        return type(self)(self.get_fn, set_fn)
 
 class A:
-    # u = Property()
+
     def __init__(self,data):
         self._data = data
 
@@ -28,6 +25,7 @@ class A:
         self._data = value
 
 a = A(8)
+print(a.data, '++++++++++')
 a.data = 20
 print(a.data, '++++++++++')
-print(a.__dict__)
+
