@@ -47,6 +47,8 @@ class Pdf_docx_md(object):
             self.find_mass(change_path)
 
 
+
+
 if __name__ == '__main__':
 
     pdf_docx_md = Pdf_docx_md()
