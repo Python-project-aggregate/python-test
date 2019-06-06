@@ -24,3 +24,4 @@ calc()
 calc()
 delta = (datetime.datetime.now() - start).total_second()
 logging.info(delta)
+
