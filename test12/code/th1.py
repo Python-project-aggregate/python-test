@@ -3,3 +3,9 @@
 # QUeue类的size虽然加了锁,但是依然不能保证get. put就能成功, 因为读取大小和get, put方法是分开的
 import queue
 q = queue.Queue(8)
+if q.size() == 7:
+    q.put()
+
+if q.qsize() == 1:
+    q.get()
+    
