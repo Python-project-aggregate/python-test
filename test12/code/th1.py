@@ -8,4 +8,5 @@ if q.size() == 7:
 
 if q.qsize() == 1:
     q.get()
+
     
